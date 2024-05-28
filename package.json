@@ -1,0 +1,24 @@
+{
+  "name": "SQL-Maker-Omie",
+  "version": "1.0.0",
+  "description": "An automatic sql query generator",
+  "main": "index.js",
+  "repository": "git@github.com:OmieSawie/SQL-Maker-Omie.git",
+  "author": "Omie Sawie <omkarsawant20HG@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.12.12",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "dev": "ts-node ./src/index.ts"
+  }
+}
