@@ -2,7 +2,7 @@ import baseDataParsed from "../templateDatabases/tasks.json"
 
 
 const queryName: string = "tasks";
-const dataProperties: string[] = [];
+const dataProperties:string[] = [] ;
 
 try {
   // Check if the array has at least 3 elements and the third element is the tasks table
@@ -22,9 +22,9 @@ try {
 
     // Check if the data property is an array and has at least one element
     if (Array.isArray(data) && data.length > 0) {
-
-      const dataProperties: { [key: string]: string } = extractDataFromTable(data);
-
+      const firstDataObject = data[0];
+      console.log(firstDataObject);
+      extractDataFromTable(data);
     } else {
       console.log(`No data found in the ${queryName} table.`);
     }
@@ -35,35 +35,14 @@ try {
   console.error('Error parsing JSON:', error);
 }
 
+var properties:string[];
 
-function extractDataFromTable(data: Array<Record<string, any>>): { [key: string]: string } {
+function extractDataFromTable(data: Array<string>) {
+  // console.log(data[1][Object.keys(data[0])[0]]);
+  properties = (Object.keys(data[0]));
+  // Populating the data properties first
+  // dataProperties.push(Object.keys(data[0])); 
+  
+  console.log(properties);
 
-  let result: { [key: string]: string } = {};
-
-  for (const dataObject in data) {
-    let isIncomplete: boolean = false;
-    const dataObject = data[0];
-    console.log("Type of data ", Object.keys(dataObject));
-    for (const key in dataObject) {
-      if (dataObject[key] === null) {
-        result[key] = "unknown"
-      } else if (!isNaN(Number(dataObject[key]))) {
-        result[key] = "number"
-      }
-      else {
-        result[key] = "string"
-      }
-      if (result[key] === "unknown") {
-        isIncomplete = true;
-      }
-      console.log(result[key], dataObject[key]);
-    }
-    if (isIncomplete === false) {
-      break;
-    }
-  }
-  console.log(result);
-
-
-  return result;
 }
