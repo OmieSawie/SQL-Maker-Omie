@@ -1,0 +1,18 @@
+Plain Hello World, sort by relevance    https://www.youtube.com/results?search_query=hello+world
+4-20 mins                               https://www.youtube.com/results?search_query=hello+world&sp=EgIYAw%253D%253D
+Upload date                             https://www.youtube.com/results?search_query=hello+world&sp=CAI%253D
+Upload Date and HD                      https://www.youtube.com/results?search_query=hello+world&sp=CAISBBABIAE%253D
+HD and relevance                        https://www.youtube.com/results?search_query=hello+world&sp=CAASBBABIAE%253D
+
+
+
+How the query is encoded into the url ?
+
+Flat JSON meaning that we dont have to write the sql or there will be a single table?
+
+
+Do we want a feature where a user copies and sends his url to another person and the other person is able to view it in the same table format?
+  If yes: We need to use Quesy Parameters in the URL (We can add a step of compressing it before sending to look short)
+          OR We can edit the url from frontend such that the url saves the page view and the api is called as per the page view
+              AND we can send the Parameters in the body at the same time, which saves the time for compressing/decompressing the URL to get the params.
+  If no: We can send the data in the body of the request.
