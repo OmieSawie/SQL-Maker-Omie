@@ -1,7 +1,9 @@
 import mysql from "mysql2"
 import * as dotenv from "dotenv";
+import path from 'path'
 
-dotenv.config({ path: __dirname + '/.env' });
+const envPath = path.join(__dirname,'../.env');
+dotenv.config({ path: envPath});
 
 const pool = mysql.createPool({
   host: process.env.HOST,
@@ -77,7 +79,6 @@ const sendSQL = async (params: string[], filters: Filters) => {
     }
 
     console.log("Generated Query = ", query);
-
     const [rows] = await pool.query(query);
     console.log([rows]);
     return rows;
