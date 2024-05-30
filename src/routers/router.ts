@@ -1,7 +1,9 @@
 import express from 'express'
-import controller from '../controllers/controller'
+import getController from '../controllers/getController'
+import updateDataTypesController from '../controllers/updateDataTypesController';
 const router = express.Router();
 
-router.get("/", controller);
+router.get("/", getController);
+router.get("/updateDataTypes", updateDataTypesController);
 
 export default router;
